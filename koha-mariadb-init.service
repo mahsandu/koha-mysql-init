@@ -1,0 +1,13 @@
+[Unit]
+Description=Koha SQL init
+After=mariadb.service
+Requires=mariadb.service
+PartOf=mariadb.service
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/etc/koha/koha-mysql-init.sh
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=mariadb.service
